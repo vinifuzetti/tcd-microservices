@@ -31,7 +31,7 @@ public class Product {
 	}
 
 	public void setViews(Integer views) {
-		this.views = views++;
+		this.views = views;
 	}
 
 	public String getName() {

@@ -14,3 +14,10 @@ mysql --password
 create database product_table;
 create user 'springuser'@'%' identified by 'timao';
 grant all on product_table.* to 'springuser'@'%';
+
+APIs Contracts:
+
+POST /product/add
+GET /product/{category}
+GET /product/desc/{product_id}
+GET /product/views/{category}
