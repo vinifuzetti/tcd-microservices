@@ -1,6 +1,6 @@
 # Trabalho de conclusão da disciplina
 
-Alunos: Vinicius R Fuzetti e Gabriel Cerione
+Alunos: Vinicius R Fuzetti
         
 1 - Cenário Amazon
 1.1 - Setup
