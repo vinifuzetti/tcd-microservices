@@ -6,20 +6,23 @@ Alunos: Vinicius R Fuzetti
 1.1 - Setup
 	docker-compose up -- para subir banco de dados
 
-	docker exec -it <id_docker> bash -- executar criação de banco no container
+	docker exec -it 68ea0986a481 bash -- executar criação de banco no container 68ea0986a481
 
 	mysql --password
 
-	create database product_table;
+	create database product;
 	create user 'springuser'@'%' identified by 'timao';
-	grant all on product_table.* to 'springuser'@'%';
+	grant all on product.* to 'springuser'@'%';
+
+	create database wishlist;
+	grant all on wishlist.* to 'springuser'@'%';
 
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
 		Possibilidade de visualizar os produtos de um determinado categoria (OK);
 		Possibilidade de visualizar os detalhes de cada produto;
 		Possibilidade de buscar um produto por palavra-chave;
-		Possibilidade de exibir os produtos mais vistos por categorias;
+		Possibilidade de exibir os produtos mais vistos por categorias (OK);
 
 	1.2.2 - Wish List Microservice:
 		Possibilidade de adicionar itens na sua lista de desejo;

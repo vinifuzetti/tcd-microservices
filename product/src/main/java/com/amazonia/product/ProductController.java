@@ -59,4 +59,9 @@ public class ProductController {
 	public @ResponseBody Iterable<Product> getProductCategory(@PathVariable String category) {
 		return productRepository.findByCategory(category);
 	}
+	
+	@GetMapping(path="/views/{category}")
+	public @ResponseBody Iterable<Product> getProductViewsCategory(@PathVariable String category) {
+		return productRepository.findByViewsCategory(category);
+	}
 }
