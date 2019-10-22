@@ -13,6 +13,8 @@ Alunos: Vinicius R Fuzetti e Gabriel Cerione
 	create database product_table;
 	create user 'springuser'@'%' identified by 'timao';
 	grant all on product_table.* to 'springuser'@'%';
+	
+	Docker inicia todos os applications em containers dedicados
 
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
