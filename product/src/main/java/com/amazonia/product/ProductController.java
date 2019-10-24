@@ -2,6 +2,7 @@ package com.amazonia.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ public class ProductController {
 	private ProductRepository productRepository;
 	
 	@PostMapping(path="/add") // Map ONLY POST Requests
+	@KafkaListener(id = "product-add", topics = "product-add")
 	public @ResponseBody String addNewProduct (@RequestParam String name
 			, @RequestParam String category) {
 		// @ResponseBody means the returned String is the response, not a view name
