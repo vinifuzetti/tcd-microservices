@@ -10,9 +10,8 @@ spring:
 
 # don't register with your self
 eureka.client:
-    registerWithEureka: false
-    fetchRegistry: false
-
+    register-with-eureka: false
+    fetch-registry: false
   
 ---
 # LOCAL CONFIGURATION

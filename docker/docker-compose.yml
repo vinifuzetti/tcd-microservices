@@ -2,41 +2,6 @@ version: '3.5'
 
 services:
   # --------------
-  # zookeeper
-  # --------------
-  zookeeper:
-    image: wurstmeister/zookeeper
-    ports:
-      - "2181:2181"
-    networks:
-      - kafka-network
-  # --------------
-  # kafka
-  # fonte: https://medium.com/@marcelo.hossomi/running-kafka-in-docker-machine-64d1501d6f0b
-  # --------------
-  kafka:
-    image: wurstmeister/kafka
-    ports:
-      - "9092:9092"
-    networks:
-      - kafka-network
-    environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS:
-        "INTERNAL://kafka:9090,\
-         EXTERNAL://:9092"
-      KAFKA_ADVERTISED_LISTENERS:
-        "INTERNAL://kafka:9090,\
-         EXTERNAL://dockervm:9092"
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP:
-        "INTERNAL:PLAINTEXT,\
-         EXTERNAL:PLAINTEXT"
-      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
-    depends_on:
-      - zookeeper
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-  # --------------
   # registry
   # --------------
   discovery:
@@ -44,7 +9,7 @@ services:
     ports:
       - "8761:8761"
     networks:
-      - kafka-network
+      - discovery
     environment:
       - SPRING_PROFILES_ACTIVE=docker
   # --------------
@@ -80,10 +45,12 @@ services:
     build: ../proxy/target
     ports:
       - "80:8080"
+    expose:
+      - "8080"
+    networks:
+      - discovery
     links:
       - discovery
-    networks:
-      - kafka-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 
@@ -96,10 +63,9 @@ services:
       - "8080"
     networks:
       - mysql-network
-      - kafka-network
+      - discovery
     links:
       - discovery
-      - kafka
     depends_on:
       - mysql-container
     environment:
@@ -113,10 +79,9 @@ services:
       - "8080"
     networks:
       - mysql-network
-      - kafka-network
+      - discovery
     links:
       - discovery
-      - kafka
     depends_on:
       - mysql-container
     environment:
@@ -131,10 +96,9 @@ services:
       - "8080"
     networks:
       - mysql-network
-      - kafka-network
+      - discovery
     links:
       - discovery
-      - kafka
     depends_on:
       - mysql-container
     environment:
@@ -143,8 +107,9 @@ services:
 volumes:
   my-db:
 networks:
-  mysql-network:
+  #network for eureka discovery
+  discovery:
     driver: bridge
-  kafka-network:
-    name: kafka-network
+  #mysqlnetwork
+  mysql-network:
     driver: bridge
