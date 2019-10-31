@@ -29,9 +29,9 @@ spring:
                group: supportGroup
          kafka:
             binder:
-               zkNodes: kafka
-               brokers: kafka
-kafka.bootstrap.servers: kafka
+               zkNodes: kafka:29092
+               brokers: kafka:29092
+kafka.bootstrap.servers: kafka:29092
 
 # inside a container, we can always map to 8080. Use your compose
 # file to expose a service on a different port.

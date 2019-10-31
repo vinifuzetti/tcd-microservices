@@ -31,9 +31,25 @@ public class Application {
     @RequestMapping("/hello_cart")
     public String hello() {
         LOG.log(Level.INFO, "requested Service 'cart'");
-        Boolean openTicket = true;
-		source.output().send(MessageBuilder.withPayload(openTicket).build());
+        Ticket ticket =new Ticket(true); 
+		source.output().send(MessageBuilder.withPayload(ticket.ticketStatus).build());
         return "Hello from service 'cart'. Ticket de supporte aberto";
+    }
+    
+    public class Ticket
+    {
+    	
+    	public Boolean ticketStatus;
+    	
+    	public Ticket()
+    	{
+    		super();
+    	}
+    	
+    	public Ticket(Boolean ticketStatus)
+    	{
+    		this.ticketStatus = ticketStatus;
+    	}
     }
 }
 

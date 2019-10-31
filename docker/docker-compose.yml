@@ -41,17 +41,55 @@ services:
   # --------------
   # kafka proxy
   # --------------
-  kafka:
-    image: spotify/kafka
-    hostname: kafka
-    environment:
-       ADVERTISED_HOST: kafka
-       ADVERTISED_PORT: 9092
-    ports:
-       - "2181:2181"
-       - "9092:9092"
+  #kafka:
+  #  image: spotify/kafka
+  #  hostname: kafka
+  #  environment:
+  #     ADVERTISED_HOST: kafka
+  #     ADVERTISED_PORT: 9092
+  #  ports:
+  #     - "2181:2181"
+  #     - "9092:9092"
+  #  networks:
+  #       - discovery
+  # --------------
+  # ZOOKEEPER proxy
+  # --------------
+  zookeeper:
+    image: "confluentinc/cp-zookeeper:5.2.1"
     networks:
-         - discovery
+      - discovery
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  # --------------
+  # kafka proxy
+  # --------------
+  kafka:
+    image: "confluentinc/cp-enterprise-kafka:5.2.1"
+    hostname: kafka
+    ports:
+      - '9092:9092'
+      - '29094:29094'
+    depends_on:
+      - zookeeper
+    networks:
+      - discovery
+    environment:
+      KAFKA_BROKER_ID: 0
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: DOCKER_HOST://kafka:29092,EXTERNAL_HOST://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: DOCKER_HOST://kafka:29092,EXTERNAL_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: DOCKER_HOST:PLAINTEXT,EXTERNAL_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: DOCKER_HOST
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "TRUE"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+  kafkacat:
+    image: confluentinc/cp-kafkacat
+    command: sleep infinity
+         
   # --------------
   # zuul proxy
   # --------------
@@ -65,6 +103,11 @@ services:
       - discovery
     links:
       - discovery
+    depends_on:
+      - wishlist
+      - support
+      - cart
+      - product
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 

@@ -26,6 +26,11 @@ zuul:
     cart:
       path: /cart/**
       serviceId: Cart
+    # routes for service 'cart'
+    support:
+      path: /support/**
+      serviceId: Support
+
 
 ---
 # LOCAL CONFIGURATION

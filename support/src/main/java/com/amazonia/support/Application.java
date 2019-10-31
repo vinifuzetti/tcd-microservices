@@ -3,6 +3,7 @@ package com.amazonia.support;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -23,18 +24,34 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
     
-    public Boolean status = Boolean.FALSE; 
+    public Ticket ticket = new Ticket(Boolean.FALSE); 
     
     @RequestMapping("/hello_support")
     public String hello() {
         LOG.log(Level.INFO, "requested Service 'support'");
-        String var = status?"ativo": "inativo";
-        return "Hello from service 'support'. Seu Status de servico: " + var;
+        String var = ticket.ticketStatus?"ativo": "inativo";
+        return "Hello from service 'support'. Status do seu ticket de supporte: " + var;
     }
     
     @StreamListener("inboundSupportTicket")
-    public void ticketSink(Boolean ticket) {
-    	status = ticket;
+    public void ticketSink(Boolean ticketStatus) {
+    	ticket.ticketStatus = ticketStatus;
+    }
+    
+    public class Ticket
+    {
+    	
+    	public Boolean ticketStatus;
+    	
+    	public Ticket()
+    	{
+    		super();
+    	}
+    	
+    	public Ticket(Boolean ticketStatus)
+    	{
+    		this.ticketStatus = ticketStatus;
+    	}
     }
 }
 
