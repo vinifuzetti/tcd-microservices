@@ -1,29 +1,24 @@
 package com.amazia.wishlist;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Wishlist {
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Integer cpf;
 
     private String name;
 
-    private List<Integer> productList;
+    private Integer productId;
 
 	public Integer getId() {
-		return id;
+		return cpf;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getName() {
@@ -34,11 +29,11 @@ public class Wishlist {
 		this.name = name;
 	}
 
-	public List<Integer> getProductlist() {
-		return productList;
+	public Integer getProductId() {
+		return productId;
 	}
 
-	public void setProductlist (List<Integer> productList) {
-		this.productList = productList;
+	public void setProductId (Integer Id) {
+		this.productId = Id;
 	}
 }
