@@ -1,6 +1,6 @@
 # Trabalho de conclusão da disciplina
 
-Alunos: Vinicius R Fuzetti, Gabriel Cerioni, Bruno Gruebel Heidorn e Renan Herman
+Alunos: Vinicius R Fuzetti RM334273, Gabriel Cerioni RM333237, Bruno Gruebel Heidorn RM334131 e Renan Hermann RM334765
         
 1 - Cenário Amazon
 1.1 - Setup
