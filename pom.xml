@@ -15,5 +15,6 @@
     <module>product</module>
     <module>wishlist</module>
     <module>cart</module>
+    <module>support</module>
   </modules>
 </project>

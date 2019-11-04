@@ -34,5 +34,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/BrunoHeidorn/.m2/repository/org/springframework/cloud/spring-cloud-stream/2.1.4.RELEASE/spring-cloud-stream-2.1.4.RELEASE.jar" sourcepath="C:/Users/BrunoHeidorn/.m2/repository/org/springframework/cloud/spring-cloud-stream/2.1.4.RELEASE/spring-cloud-stream-2.1.4.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.springframework.cloud"/>
+			<attribute name="maven.artifactId" value="spring-cloud-stream"/>
+			<attribute name="maven.version" value="2.1.4.RELEASE"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
