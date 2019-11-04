@@ -17,6 +17,9 @@ Alunos: Vinicius R Fuzetti, Gabriel Cerioni, Bruno Gruebel Heidorn e Renan Herma
 	create database wishlist;
 	grant all on wishlist.* to 'springuser'@'%';
 
+	create database card;
+	grant all on cart.* to 'springuser'@'%';
+
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
 		Possibilidade de visualizar os produtos de um determinado categoria (OK);

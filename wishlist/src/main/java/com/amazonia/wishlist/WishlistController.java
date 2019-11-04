@@ -50,8 +50,6 @@ public class WishlistController {
 	
 	@GetMapping(path="/{cpf}")
 	public @ResponseBody Iterable<Wishlist> getWishList(@PathVariable Integer cpf) {
-		// This returns a JSON or XML with the products
-
 	    // RestTemplate restTemplate;
 		
 		Application application =
