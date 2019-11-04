@@ -1,4 +1,4 @@
-package com.amazia.wishlist;
+package com.amazonia.wishlist;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

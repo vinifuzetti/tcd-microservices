@@ -1,1 +1,4 @@
-com\amazonia\wishlist\Application.class
+com\amazonia\wishlist\WishlistController.class
+com\amazonia\wishlist\WishlistApplication.class
+com\amazonia\wishlist\Wishlist.class
+com\amazonia\wishlist\WishlistRepository.class

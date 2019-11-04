@@ -19,6 +19,11 @@ eureka.instance:
 # DOCKER CONFIGURATION
 spring:
     profiles: docker
+    datasource.url: jdbc:mysql://mysql-container:3306/wishlist?useSSL=FALSE&allowPublicKeyRetrieval=true
+    datasource.username: springuser
+    datasource.password: timao
+    datasource.driver-class-name: com.mysql.jdbc.Driver
+    jpa.hibernate.ddl-auto: update
     cloud:
        stream:
          bindings:

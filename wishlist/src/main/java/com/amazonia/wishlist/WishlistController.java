@@ -1,4 +1,4 @@
-package com.amazia.wishlist;
+package com.amazonia.wishlist;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
