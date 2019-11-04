@@ -4,21 +4,7 @@ Alunos: Vinicius R Fuzetti, Gabriel Cerioni, Bruno Gruebel Heidorn e Renan Herma
         
 1 - Cenário Amazon
 1.1 - Setup
-	docker-compose up -- para subir banco de dados
-
-	docker exec -it 68ea0986a481 bash -- executar criação de banco no container 68ea0986a481
-
-	mysql --password
-
-	create database product;
-	create user 'springuser'@'%' identified by 'timao';
-	grant all on product.* to 'springuser'@'%';
-
-	create database wishlist;
-	grant all on wishlist.* to 'springuser'@'%';
-
-	create database card;
-	grant all on cart.* to 'springuser'@'%';
+	docker-compose up para iniciar todos os servicos
 
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
@@ -35,7 +21,7 @@ Alunos: Vinicius R Fuzetti, Gabriel Cerioni, Bruno Gruebel Heidorn e Renan Herma
 		Possibilidade de calcular o frete de uma compra;
 
 	1.2.4 - Chamados with Kafka:
-		Possibilidade de abrir um chamado técnico de algum problema que está acontecendo;
+		Possibilidade de abrir um chamado técnico de algum problema que está acontecendo; (Infra criada)
 
 
 1.3 - APIs Contracts
@@ -56,6 +42,6 @@ GET /product/{id}
 GET /product/views/{category}
 
 -- busca produtos por palavra-chave
-GET /product/keyworld
+GET /product/keyword
 
 
