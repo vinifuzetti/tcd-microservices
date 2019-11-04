@@ -1,0 +1,4 @@
+com\amazonia\cart\CartController.class
+com\amazonia\cart\Cart.class
+com\amazonia\cart\CartApplication.class
+com\amazonia\cart\CartRepository.class

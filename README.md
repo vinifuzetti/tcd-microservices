@@ -1,6 +1,6 @@
 # Trabalho de conclusão da disciplina
 
-Alunos: Vinicius R Fuzetti
+Alunos: Vinicius R Fuzetti, Gabriel Cerioni, Bruno Gruebel Heidorn e Renan Herman
         
 1 - Cenário Amazon
 1.1 - Setup
@@ -16,6 +16,9 @@ Alunos: Vinicius R Fuzetti
 
 	create database wishlist;
 	grant all on wishlist.* to 'springuser'@'%';
+
+	create database card;
+	grant all on cart.* to 'springuser'@'%';
 
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
