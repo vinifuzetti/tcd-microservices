@@ -1,24 +1,11 @@
 # Trabalho de conclusão da disciplina
 
-Alunos: Vinicius R Fuzetti
+Alunos: Vinicius R Fuzetti RM334273, Gabriel Cerioni RM333237, Bruno Gruebel Heidorn RM334131 e Renan Hermann RM334765
         
 1 - Cenário Amazon
 1.1 - Setup
-	docker-compose up -- para subir banco de dados
-
-	docker exec -it 68ea0986a481 bash -- executar criação de banco no container 68ea0986a481
-
-	mysql --password
-
-	create database product;
-	create user 'springuser'@'%' identified by 'timao';
-	grant all on product.* to 'springuser'@'%';
-
-	create database wishlist;
-	grant all on wishlist.* to 'springuser'@'%';
-
-	create database card;
-	grant all on cart.* to 'springuser'@'%';
+	na pasta  raiz tcd-microservices executar "mvn install"
+	na pasta tcd-microservices/docker executar "docker-compose up" para iniciar todos os servicos
 
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
@@ -35,7 +22,7 @@ Alunos: Vinicius R Fuzetti
 		Possibilidade de calcular o frete de uma compra;
 
 	1.2.4 - Chamados with Kafka:
-		Possibilidade de abrir um chamado técnico de algum problema que está acontecendo;
+		Possibilidade de abrir um chamado técnico de algum problema que está acontecendo; (Infra criada)
 
 
 1.3 - APIs Contracts
@@ -56,6 +43,6 @@ GET /product/{id}
 GET /product/views/{category}
 
 -- busca produtos por palavra-chave
-GET /product/keyworld
+GET /product/keyword
 
 

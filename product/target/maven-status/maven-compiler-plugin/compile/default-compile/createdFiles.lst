@@ -1,0 +1,4 @@
+com\amazonia\product\Product.class
+com\amazonia\product\ProductRepository.class
+com\amazonia\product\ProductApplication.class
+com\amazonia\product\ProductController.class
