@@ -4,7 +4,7 @@ info:
   description: Trabalho de conclusao de disciplina FIAP. O trabalho descreve alguns microservicos destinados ao ecommerce Amazonia, que vendo produtos online como livros, celulares, jogos e muito mais.
   version: 1.0.0
 host: localhost
-basePath: /
+basePath: /amazonia
 schemes:
   - http
 paths:
