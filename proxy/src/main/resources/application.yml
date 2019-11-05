@@ -23,21 +23,20 @@ zuul:
   routes:
     # routes for service 'product'
     product:
-      path: /product/**
+      path: /amazonia/product/**
       serviceId: Product
     # routes for service 'wishlist'
     wishlist:
-      path: /wishlist/**
+      path: /amazonia/wishlist/**
       serviceId: Wishlist
     # routes for service 'cart'
     cart:
-      path: /cart/**
+      path: /amazonia/cart/**
       serviceId: Cart
     # routes for service 'cart'
     support:
-      path: /support/**
+      path: /amazonia/support/**
       serviceId: Support
-
 
 ---
 # LOCAL CONFIGURATION
