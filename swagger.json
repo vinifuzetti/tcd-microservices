@@ -1,0 +1,223 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Amazonia",
+    "description": "Trabalho de conclusao de disciplina FIAP. O trabalho descreve alguns microservicos destinados ao ecommerce Amazonia, que vendo produtos online como livros, celulares, jogos e muito mais.",
+    "version": "1.0.0"
+  },
+  "host": "localhost",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/product/category/{category}": {
+      "get": {
+        "summary": "Retorna lista de produtos por categoria.",
+        "description": "Busca de produtos por categoria.",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "description": "Categoria do produto",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/product/add": {
+      "post": {
+        "summary": "Add novo produto a loja",
+        "description": "Adiciona produtos a lista da loja",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "product",
+            "description": "Produto a criar.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "name"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/product/{id}": {
+      "get": {
+        "summary": "Busca produtos por id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do produto",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/product/views/{category}": {
+      "get": {
+        "summary": "Retorna lista de produtos por categoria.",
+        "description": "Busca produtos mais vistos por categoria.",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "description": "Categoria do produto",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/wishlist/{cpf}": {
+      "get": {
+        "summary": "Retorna lista de produtos desejados.",
+        "description": "Busca produtos pelo cpf",
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "description": "cpf do usuario",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/wishlist/add": {
+      "post": {
+        "summary": "Add novo produto ao carrinho",
+        "description": "Adiciona produtos a lista da loja",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "wish",
+            "description": "Produto a add.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "product"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "productId": {
+                  "type": "integer"
+                },
+                "cpf": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/cart/add": {
+      "post": {
+        "summary": "Add novo produto ao carrinho",
+        "description": "Adiciona produtos a lista da loja",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cart",
+            "description": "Produto a add.",
+            "schema": {
+              "type": "object",
+              "required": [
+                "product"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "productId": {
+                  "type": "integer"
+                },
+                "cpf": {
+                  "type": "integer"
+                },
+                "endereco": {
+                  "type": "string"
+                },
+                "qtd": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    }
+  }
+}
