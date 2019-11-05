@@ -104,6 +104,7 @@ services:
   # --------------
   product:
     build: ../product/target
+    restart: always
     ports:
       - "8080"
     networks:
@@ -112,6 +113,7 @@ services:
     links:
       - discovery
       - kafka
+      - mysql-container
     depends_on:
       - mysql-container
       - kafka
@@ -122,6 +124,7 @@ services:
   # --------------
   wishlist:
     build: ../wishlist/target
+    restart: always
     ports:
       - "8080"
     networks:
@@ -130,6 +133,7 @@ services:
     links:
       - discovery
       - kafka
+      - mysql-container
     depends_on:
       - mysql-container
       - kafka
@@ -140,6 +144,7 @@ services:
   # --------------
   cart:
     build: ../cart/target
+    restart: always
     ports:
       - "8080"
     networks:
@@ -148,6 +153,7 @@ services:
     links:
       - discovery
       - kafka
+      - mysql-container
     depends_on:
       - mysql-container
       - kafka
@@ -158,6 +164,7 @@ services:
   # --------------
   support:
     build: ../support/target
+    restart: always
     ports:
       - "8080"
     networks:
@@ -166,6 +173,7 @@ services:
     links:
       - discovery
       - kafka
+      - mysql-container
     depends_on:
       - mysql-container
       - kafka

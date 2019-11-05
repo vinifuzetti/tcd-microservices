@@ -10,6 +10,13 @@ spring:
 # zuul proxy always exposes 8080 
 server.port: 8080
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
 # zuul routes
 zuul:
   ignoredServices: '*'
@@ -36,8 +43,7 @@ zuul:
 # LOCAL CONFIGURATION
 spring:
     profiles: local
-      
-      
+
 eureka.client:
     # in local mode you have to run your service 
     # discovery on localhost (you also can run the 
@@ -50,7 +56,6 @@ eureka.client:
 # DOCKER CONFIGURATION
 spring:
     profiles: docker
-    
 
 eureka.client:
     # the hostname of your eureka server should be 'discovery'

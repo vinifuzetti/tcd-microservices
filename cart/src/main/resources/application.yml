@@ -38,6 +38,7 @@ kafka.bootstrap.servers: kafka:29092
 # inside a container, we can always map to 8080. Use your compose
 # file to expose a service on a different port.
 server.port: 8080
+management.endpoints.web.exposure.include: "*"
 
 # the hostname of your eureka server should be 'discovery'.
 eureka.client.serviceUrl.defaultZone: http://discovery:8761/eureka/
