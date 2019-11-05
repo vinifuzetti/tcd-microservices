@@ -4,7 +4,8 @@ Alunos: Vinicius R Fuzetti RM334273, Gabriel Cerioni RM333237, Bruno Gruebel Hei
         
 1 - Cenário Amazon
 1.1 - Setup
-	docker-compose up para iniciar todos os servicos
+	na pasta  raiz tcd-microservices executar "mvn install"
+	na pasta tcd-microservices/docker executar "docker-compose up" para iniciar todos os servicos
 
 1.2 - Necessidades
 	1.2.1 - Product Microservice:
